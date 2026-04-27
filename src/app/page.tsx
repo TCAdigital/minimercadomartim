@@ -218,7 +218,17 @@ export default function Home() {
       <footer className="bg-[var(--color-brand-dark)] text-gray-300 py-16 border-t-[10px] border-[var(--color-brand-orange)]">
         <div className="container-custom grid md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-2">
-            <span className="font-serif font-bold text-3xl text-white tracking-tight block mb-6">
+            <img 
+              src="/mini-mercado-martin-v2.png" 
+              alt="Mini Mercado Martin" 
+              className="h-14 md:h-16 w-auto object-contain mb-6"
+              onError={(e) => {
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+                target.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            <span className="hidden font-serif font-bold text-3xl text-white tracking-tight mb-6">
               Mini Mercado <span className="text-[var(--color-brand-green)]">Martin</span>
             </span>
             <p className="max-w-sm mb-6 text-gray-400">

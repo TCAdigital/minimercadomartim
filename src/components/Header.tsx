@@ -31,7 +31,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0 group">
             <img 
-              src="/logo.png" 
+              src="/mini-mercado-martin.png" 
               alt="Mini Mercado Martin" 
               className="h-10 md:h-12 w-auto object-contain transform transition-transform group-hover:scale-105"
               onError={(e) => {
