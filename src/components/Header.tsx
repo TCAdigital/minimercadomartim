@@ -106,6 +106,15 @@ export function Header() {
       <nav className="hidden md:block bg-[#faf7f3] border-b border-[var(--color-brand-border)]/50">
         <div className="container-custom flex items-center justify-between">
           <ul className="flex items-center">
+            <li>
+              <Link 
+                href="#vitrine" 
+                className="block py-3 px-5 text-sm font-bold text-[var(--color-brand-green)] uppercase tracking-wide flex items-center gap-2"
+              >
+                Produtos em Destaque
+                <span className="bg-[var(--color-brand-orange)] text-white text-[9px] px-1.5 py-0.5 rounded-sm">HOT</span>
+              </Link>
+            </li>
             {["Hortifruti", "Mercearia", "Carnes", "Padaria", "Bebidas", "Limpeza"].map((cat) => (
               <li key={cat}>
                 <Link 
@@ -116,15 +125,6 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link 
-                href="#" 
-                className="block py-3 px-5 text-sm font-bold text-[var(--color-brand-green)] uppercase tracking-wide flex items-center gap-2"
-              >
-                Ofertas da Semana
-                <span className="bg-[var(--color-brand-orange)] text-white text-[9px] px-1.5 py-0.5 rounded-sm">HOT</span>
-              </Link>
-            </li>
           </ul>
         </div>
       </nav>

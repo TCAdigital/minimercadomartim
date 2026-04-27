@@ -97,7 +97,7 @@ export default function Home() {
         </section>
 
         {/* PRODUCTS */}
-        <section className="py-16 bg-gray-50/50">
+        <section id="vitrine" className="py-16 bg-gray-50/50">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">Novidades</span>
