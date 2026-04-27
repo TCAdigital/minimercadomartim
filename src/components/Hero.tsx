@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { ArrowRight, Leaf, ChevronLeft, ChevronRight } from "lucide-react";
-import { formatCurrency } from "@/lib/utils";
 
 const SLIDES = [
   {
@@ -54,7 +53,7 @@ export function Hero() {
 
   return (
     <section 
-      className="relative overflow-hidden min-h-[500px] flex items-center transition-colors duration-1000"
+      className="relative overflow-hidden h-[600px] flex items-center transition-colors duration-1000"
       style={{ backgroundColor: slide.color }}
     >
       <div 
@@ -68,7 +67,7 @@ export function Hero() {
         }}
       />
       
-      <div className="container-custom relative z-10 grid md:grid-cols-2 gap-8 items-center py-20 min-h-[500px]">
+      <div className="container-custom relative z-10 grid md:grid-cols-2 gap-8 items-center h-full">
         {/* Text Content */}
         <div className="max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700" key={`text-${slide.id}`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6">
@@ -91,7 +90,7 @@ export function Hero() {
         
         {/* Image Content */}
         <div className="hidden md:block relative animate-in fade-in slide-in-from-right-8 duration-700" key={`img-${slide.id}`}>
-          <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-xs uppercase text-center rotate-12 shadow-xl animate-[spin_10s_linear_infinite] z-20">
+          <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-xs uppercase text-center shadow-xl animate-pulse z-20">
             <Leaf className="w-5 h-5 text-[var(--color-brand-orange)] mb-1" />
             100%<br/>Orgânico
           </div>
@@ -99,7 +98,6 @@ export function Hero() {
             src={slide.mainImage} 
             alt="Destaque" 
             className="w-full max-w-md mx-auto rounded-[2rem] shadow-2xl object-cover aspect-square transition-transform duration-700 hover:scale-105 relative z-10"
-            style={{ transform: `rotate(${currentSlide * 5}deg)` }}
           />
         </div>
       </div>
@@ -119,12 +117,12 @@ export function Hero() {
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {SLIDES.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
               currentSlide === index ? "bg-white scale-125" : "bg-white/50 hover:bg-white/80"
             }`}
           />
@@ -133,3 +131,4 @@ export function Hero() {
     </section>
   );
 }
+

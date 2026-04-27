@@ -2,7 +2,9 @@ import { Header } from "@/components/Header";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { Hero } from "@/components/Hero";
-import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote, GlassWater } from "lucide-react";
+
+import { PromoSlider } from "@/components/PromoSlider";
 
 // Mock data
 const MOCK_PRODUCTS = [
@@ -31,7 +33,7 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { icon: Truck, title: "Entrega Rápida", desc: "Na sua porta" },
-                { icon: ShieldCheck, title: "Compra Segura", desc: "Garantia de frescor" },
+                { icon: GlassWater, title: "Bebidas Geladas", desc: "Sempre no ponto perfeito" },
                 { icon: Leaf, title: "Produtos Orgânicos", desc: "Direto da fazenda" },
                 { icon: Clock, title: "Aberto Todos os Dias", desc: "Das 7h às 20h" }
               ].map((feature, i) => (
@@ -112,34 +114,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROMO BANNER */}
-        <section className="py-10 bg-white">
-          <div className="container-custom">
-            <div className="bg-[#1a1a1a] rounded-[2rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl">
-              <div className="absolute -left-20 -bottom-20 w-80 h-80 border-[40px] border-white/5 rounded-full"></div>
-              <div className="relative z-10 max-w-lg mb-8 md:mb-0">
-                <span className="inline-block bg-[var(--color-brand-orange)] text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6">FRETE GRÁTIS</span>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
-                  Compras acima de <br />
-                  <span className="text-[var(--color-brand-yellow)]">R$ 150,00</span>
-                </h2>
-                <p className="text-gray-400 text-lg mb-8">
-                  Faça a feira da semana pelo WhatsApp e nós levamos até você sem custo adicional na região central.
-                </p>
-                <button className="bg-[var(--color-brand-green)] text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-[var(--color-brand-green-dark)] transition-colors shadow-lg shadow-green-900/20">
-                  Fazer Pedido
-                </button>
-              </div>
-              <div className="relative z-10 w-full max-w-sm">
-                <img 
-                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" 
-                  alt="Delivery" 
-                  className="rounded-[2rem] border-4 border-white/10 shadow-2xl aspect-square object-cover rotate-3"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* PROMO SLIDER */}
+        <PromoSlider />
 
         {/* ABOUT SECTION */}
         <section className="py-20 bg-[#faf7f3]">
