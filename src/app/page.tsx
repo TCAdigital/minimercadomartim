@@ -257,8 +257,21 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="container-custom mt-16 pt-8 border-t border-white/10 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Mini Mercado Martin. Todos os direitos reservados.
+        <div className="container-custom mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <div>
+            &copy; {new Date().getFullYear()} Mini Mercado Martin. Todos os direitos reservados.
+          </div>
+          <div className="flex items-center gap-1">
+            Desenvolvido com amor ❤️ pela 
+            <a 
+              href="https://www.tcadigital.com.br/express" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[var(--color-brand-green)] hover:text-[var(--color-brand-orange)] transition-colors font-medium ml-1"
+            >
+              TCA Digital Ai-Driven
+            </a>
+          </div>
         </div>
       </footer>
     </>

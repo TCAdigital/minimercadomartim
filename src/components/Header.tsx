@@ -29,14 +29,28 @@ export function Header() {
         <div className="container-custom flex items-center justify-between py-4 gap-4">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
-            <div className="flex gap-0.5 transform transition-transform group-hover:scale-105">
-              <span className="w-2 h-4 bg-[var(--color-brand-orange)] rounded-tl-full rounded-br-full -rotate-[20deg]" />
-              <span className="w-2 h-4 bg-[var(--color-brand-green)] rounded-tl-full rounded-br-full rotate-[10deg] -translate-y-[3px]" />
+          <Link href="/" className="flex items-center flex-shrink-0 group">
+            <img 
+              src="/logo.png" 
+              alt="Mini Mercado Martin" 
+              className="h-10 md:h-12 w-auto object-contain transform transition-transform group-hover:scale-105"
+              onError={(e) => {
+                // Fallback visual in case logo.png is not found yet
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+                target.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            {/* Fallback Text Logo */}
+            <div className="hidden flex items-center gap-2">
+              <div className="flex gap-0.5 transform transition-transform group-hover:scale-105">
+                <span className="w-2 h-4 bg-[var(--color-brand-orange)] rounded-tl-full rounded-br-full -rotate-[20deg]" />
+                <span className="w-2 h-4 bg-[var(--color-brand-green)] rounded-tl-full rounded-br-full rotate-[10deg] -translate-y-[3px]" />
+              </div>
+              <span className="font-serif font-bold text-2xl text-[var(--color-brand-dark)] tracking-tight">
+                Mini Mercado <span className="text-[var(--color-brand-green)]">Martin</span>
+              </span>
             </div>
-            <span className="font-serif font-bold text-2xl text-[var(--color-brand-dark)] tracking-tight">
-              Mini Mercado <span className="text-[var(--color-brand-green)]">Martin</span>
-            </span>
           </Link>
 
           {/* Search Bar - Hidden on mobile */}
