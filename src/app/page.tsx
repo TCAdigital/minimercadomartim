@@ -2,7 +2,7 @@ import { Header } from "@/components/Header";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { Hero } from "@/components/Hero";
-import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote, GlassWater } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote, GlassWater, Instagram, Linkedin } from "lucide-react";
 
 import { PromoSlider } from "@/components/PromoSlider";
 
@@ -228,10 +228,10 @@ export default function Home() {
             </p>
             <div className="flex items-center gap-4">
               <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-brand-orange)] transition-colors">
-                <i className="fa-brands fa-instagram text-white"></i>
+                <Instagram className="w-5 h-5 text-white" />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#0a66c2] transition-colors">
-                <i className="fa-brands fa-linkedin-in text-white"></i>
+                <Linkedin className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
