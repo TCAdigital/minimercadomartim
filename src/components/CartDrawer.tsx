@@ -16,7 +16,7 @@ export function CartDrawer() {
   if (!isMounted) return null;
 
   const handleCheckout = () => {
-    const phoneNumber = "5511999999999"; // TODO: Coloque o número do WhatsApp aqui
+    const phoneNumber = "5517992246094"; // WhatsApp real
     const message = `Olá! Gostaria de fazer um pedido:\n\n${items
       .map((item) => `${item.quantity}x ${item.name} - ${formatCurrency(item.price * item.quantity)}`)
       .join("\n")}\n\n*Total: ${formatCurrency(getCartTotal())}*`;

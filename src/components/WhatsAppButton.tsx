@@ -15,7 +15,7 @@ export function WhatsAppButton() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const phoneNumber = "5511999999999"; // TODO: Coloque o número real do WhatsApp
+  const phoneNumber = "5517992246094"; // WhatsApp real
   const message = "Olá! Vim pelo site e gostaria de tirar uma dúvida.";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

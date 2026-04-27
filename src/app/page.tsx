@@ -130,7 +130,7 @@ export default function Home() {
                 />
                 <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl z-20 max-w-[200px]">
                   <Quote className="w-8 h-8 text-[var(--color-brand-orange)] mb-3" />
-                  <p className="font-serif font-bold text-[var(--color-brand-dark)] text-lg leading-tight">Tradição e Qualidade desde 1995</p>
+                  <p className="font-serif font-bold text-[var(--color-brand-dark)] text-lg leading-tight">Tradição e Qualidade desde 2016</p>
                 </div>
               </div>
               <div>
@@ -152,7 +152,7 @@ export default function Home() {
                     <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">Clientes Felizes</p>
                   </div>
                   <div>
-                    <h4 className="font-bold text-3xl text-[var(--color-brand-green)] font-serif mb-1">28</h4>
+                    <h4 className="font-bold text-3xl text-[var(--color-brand-green)] font-serif mb-1">10</h4>
                     <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">Anos de História</p>
                   </div>
                 </div>
@@ -178,9 +178,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-[var(--color-brand-dark)] mb-4">Loja Física</h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                  Rua das Flores, 123<br />
-                  Centro - São Paulo, SP<br />
-                  CEP: 01000-000
+                  R. Paulo de Araújo, 700<br />
+                  Nova Granada, SP
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
@@ -194,7 +193,7 @@ export default function Home() {
               </div>
               <div className="md:w-2/3 h-[400px] md:h-auto bg-gray-200">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x94ce59a35e2ba7e1%3A0xc3f8e5603a11b65e!2sS%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" 
+                  src="https://maps.google.com/maps?q=R.%20Paulo%20de%20Ara%C3%BAjo,%20700%20-%20Nova%20Granada,%20SP&t=&z=16&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -248,11 +247,11 @@ export default function Home() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[var(--color-brand-orange)] shrink-0 mt-1" />
-                <span>Rua das Flores, 123 - Centro<br />São Paulo, SP</span>
+                <span>R. Paulo de Araújo, 700<br />Nova Granada, SP</span>
               </li>
               <li className="flex items-center gap-3">
                 <Send className="w-5 h-5 text-[var(--color-brand-green)] shrink-0" />
-                <span>(11) 99999-9999</span>
+                <span>(17) 99224-6094</span>
               </li>
             </ul>
           </div>
