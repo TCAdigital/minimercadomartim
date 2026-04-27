@@ -227,15 +227,12 @@ export default function Home() {
               Qualidade, frescor e preço justo todos os dias. A sua mercearia de confiança no bairro.
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-brand-orange)] transition-colors cursor-pointer">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-brand-orange)] transition-colors">
                 <i className="fa-brands fa-instagram text-white"></i>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-brand-orange)] transition-colors cursor-pointer">
-                <i className="fa-brands fa-facebook-f text-white"></i>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-brand-green)] transition-colors cursor-pointer">
-                <i className="fa-brands fa-whatsapp text-white"></i>
-              </div>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#0a66c2] transition-colors">
+                <i className="fa-brands fa-linkedin-in text-white"></i>
+              </a>
             </div>
           </div>
           
