@@ -1,9 +1,10 @@
 import { Header } from "@/components/Header";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
-import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send } from "lucide-react";
+import { Hero } from "@/components/Hero";
+import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote } from "lucide-react";
 
-// Mock data based on index.html
+// Mock data
 const MOCK_PRODUCTS = [
   { id: "1", name: "Tomate Carmem Selecionado (kg)", price: 6.99, oldPrice: 8.99, category: "Hortifruti", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80" },
   { id: "2", name: "Banana Prata Orgânica (kg)", price: 5.49, category: "Hortifruti", image: "https://images.unsplash.com/photo-1571501474554-25b0f4439169?w=400&q=80" },
@@ -22,48 +23,10 @@ export default function Home() {
       <CartDrawer />
       
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="relative overflow-hidden bg-[var(--color-brand-orange)] min-h-[500px] flex items-center">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-brand-orange)] via-[var(--color-brand-orange)]/90 to-transparent"></div>
-          
-          <div className="container-custom relative z-10 grid md:grid-cols-2 gap-8 items-center py-20">
-            <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6">
-                <Leaf className="w-4 h-4 text-[var(--color-brand-yellow)]" />
-                Produtos Frescos Todos os Dias
-              </div>
-              <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
-                O melhor <br />
-                <span className="italic font-light opacity-90">hortifruti</span> <br />
-                para você.
-              </h1>
-              <p className="text-white/90 text-lg mb-8 max-w-md leading-relaxed">
-                Qualidade de feira com a conveniência de mercado. Compre online e retire na loja ou receba em casa.
-              </p>
-              <button className="bg-[var(--color-brand-dark)] hover:bg-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all flex items-center gap-3 group">
-                Comprar Agora
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-            
-            <div className="hidden md:block relative">
-              <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-xs uppercase text-center rotate-12 shadow-xl animate-[spin_10s_linear_infinite]">
-                <Leaf className="w-5 h-5 text-[var(--color-brand-orange)] mb-1" />
-                100%<br/>Orgânico
-              </div>
-              {/* Replace with a transparent bowl image */}
-              <img 
-                src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800&auto=format&fit=crop" 
-                alt="Vegetables" 
-                className="w-full max-w-md mx-auto rounded-[2rem] rotate-3 shadow-2xl object-cover aspect-square"
-              />
-            </div>
-          </div>
-        </section>
+        <Hero />
 
         {/* FEATURES */}
-        <section className="bg-white border-b border-gray-100 py-10">
+        <section className="bg-white border-b border-gray-100 py-10 relative z-10 -mt-6 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
@@ -86,8 +49,53 @@ export default function Home() {
           </div>
         </section>
 
+        {/* BANNERS (2 COLUMNS) */}
+        <section className="py-16 bg-gray-50/50">
+          <div className="container-custom">
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Banner 1 */}
+              <div className="bg-[var(--color-brand-green)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group">
+                <div className="absolute -right-10 -top-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
+                <div className="relative z-10 max-w-[200px]">
+                  <span className="text-green-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Cesta Básica</span>
+                  <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">
+                    Essenciais <br/><span className="italic font-light">para a casa</span>
+                  </h3>
+                  <button className="text-white text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
+                    Ver Opções <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1543168256-4154204ceaff?q=80&w=400&auto=format&fit=crop" 
+                  alt="Mercearia" 
+                  className="w-40 h-40 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Banner 2 */}
+              <div className="bg-[var(--color-brand-orange)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group">
+                <div className="absolute -right-10 -bottom-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
+                <div className="relative z-10 max-w-[200px]">
+                  <span className="text-orange-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Açougue Premium</span>
+                  <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">
+                    Cortes <br/><span className="italic font-light">Especiais</span>
+                  </h3>
+                  <button className="text-white text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
+                    Ver Opções <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=400&auto=format&fit=crop" 
+                  alt="Açougue" 
+                  className="w-40 h-40 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* PRODUCTS */}
-        <section className="py-20 bg-gray-50/50">
+        <section className="py-16 bg-gray-50/50">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">Novidades</span>
@@ -105,29 +113,121 @@ export default function Home() {
         </section>
 
         {/* PROMO BANNER */}
-        <section className="py-10 pb-20 bg-white">
+        <section className="py-10 bg-white">
           <div className="container-custom">
-            <div className="bg-[var(--color-brand-green)] rounded-[2rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-xl shadow-green-900/10">
-              <div className="absolute -right-20 -top-20 w-64 h-64 border-[40px] border-white/10 rounded-full"></div>
+            <div className="bg-[#1a1a1a] rounded-[2rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl">
+              <div className="absolute -left-20 -bottom-20 w-80 h-80 border-[40px] border-white/5 rounded-full"></div>
               <div className="relative z-10 max-w-lg mb-8 md:mb-0">
-                <span className="inline-block bg-[var(--color-brand-yellow)] text-[var(--color-brand-dark)] text-xs font-bold px-4 py-1.5 rounded-full mb-6">OFERTA ESPECIAL</span>
+                <span className="inline-block bg-[var(--color-brand-orange)] text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6">FRETE GRÁTIS</span>
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
-                  Sexta-feira do <br />
-                  <span className="italic font-light">Hortifruti</span>
+                  Compras acima de <br />
+                  <span className="text-[var(--color-brand-yellow)]">R$ 150,00</span>
                 </h2>
-                <p className="text-green-50 text-lg mb-8">
-                  Toda sexta-feira, frutas e verduras com até 30% de desconto. Aproveite para encher a geladeira!
+                <p className="text-gray-400 text-lg mb-8">
+                  Faça a feira da semana pelo WhatsApp e nós levamos até você sem custo adicional na região central.
                 </p>
-                <button className="bg-white text-[var(--color-brand-green-dark)] px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-gray-50 transition-colors">
-                  Ver Ofertas
+                <button className="bg-[var(--color-brand-green)] text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-[var(--color-brand-green-dark)] transition-colors shadow-lg shadow-green-900/20">
+                  Fazer Pedido
                 </button>
               </div>
               <div className="relative z-10 w-full max-w-sm">
                 <img 
-                  src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=800&auto=format&fit=crop" 
-                  alt="Hortifruti" 
-                  className="rounded-full border-8 border-white/20 shadow-2xl aspect-square object-cover"
+                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" 
+                  alt="Delivery" 
+                  className="rounded-[2rem] border-4 border-white/10 shadow-2xl aspect-square object-cover rotate-3"
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ABOUT SECTION */}
+        <section className="py-20 bg-[#faf7f3]">
+          <div className="container-custom">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="relative">
+                <div className="absolute -top-6 -left-6 w-32 h-32 bg-[var(--color-brand-orange)]/10 rounded-full blur-2xl"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Sobre o Mercado" 
+                  className="rounded-[2rem] shadow-xl relative z-10"
+                />
+                <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl z-20 max-w-[200px]">
+                  <Quote className="w-8 h-8 text-[var(--color-brand-orange)] mb-3" />
+                  <p className="font-serif font-bold text-[var(--color-brand-dark)] text-lg leading-tight">Tradição e Qualidade desde 1995</p>
+                </div>
+              </div>
+              <div>
+                <span className="text-[var(--color-brand-green)] font-bold tracking-widest uppercase text-sm mb-2 block">Nossa História</span>
+                <h2 className="text-4xl font-serif font-bold text-[var(--color-brand-dark)] mb-6">
+                  Mais que um mercado, <br/><span className="italic font-light">parte da família.</span>
+                </h2>
+                <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
+                  <p>
+                    O Mini Mercado Martin nasceu do sonho de trazer para o bairro a qualidade das grandes feiras com o atendimento caloroso que só a vizinhança conhece. 
+                  </p>
+                  <p>
+                    Selecionamos pessoalmente cada fruta, legume e corte de carne, trabalhando lado a lado com produtores locais para garantir que apenas o melhor chegue à sua mesa. Acreditamos que uma boa alimentação começa com ingredientes frescos, cultivados com respeito e carinho.
+                  </p>
+                </div>
+                <div className="flex gap-8 border-t border-gray-200 pt-8">
+                  <div>
+                    <h4 className="font-bold text-3xl text-[var(--color-brand-orange)] font-serif mb-1">+2k</h4>
+                    <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">Clientes Felizes</p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-3xl text-[var(--color-brand-green)] font-serif mb-1">28</h4>
+                    <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">Anos de História</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* MAP & LOCATION */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">Visite-nos</span>
+              <h2 className="text-4xl font-serif font-bold text-[var(--color-brand-dark)]">
+                Onde estamos <span className="italic font-light underline decoration-[var(--color-brand-green)] underline-offset-4">Localizados</span>
+              </h2>
+            </div>
+
+            <div className="bg-gray-50 rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row">
+              <div className="p-10 md:p-12 md:w-1/3 flex flex-col justify-center bg-white z-10 shadow-[20px_0_40px_rgba(0,0,0,0.03)]">
+                <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
+                  <MapPin className="w-7 h-7 text-[var(--color-brand-orange)]" />
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-[var(--color-brand-dark)] mb-4">Loja Física</h3>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  Rua das Flores, 123<br />
+                  Centro - São Paulo, SP<br />
+                  CEP: 01000-000
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Clock className="w-5 h-5 text-[var(--color-brand-green)]" />
+                    <span>Segunda a Sábado: 07h às 20h<br/>Domingo: 07h às 13h</span>
+                  </div>
+                </div>
+                <button className="mt-8 w-full bg-gray-900 text-white py-3 rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-black transition-colors">
+                  Traçar Rota
+                </button>
+              </div>
+              <div className="md:w-2/3 h-[400px] md:h-auto bg-gray-200">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x94ce59a35e2ba7e1%3A0xc3f8e5603a11b65e!2sS%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização Mini Mercado Martin"
+                  className="grayscale hover:grayscale-0 transition-all duration-700"
+                ></iframe>
               </div>
             </div>
           </div>
