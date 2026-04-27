@@ -2,25 +2,49 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  
+  --color-orange: #d84a1b;
+  --color-orange-light: #e05a2b;
+  --color-green: #5a9e1f;
+  --color-green-dark: #4a8a10;
+  --color-yellow: #f0d000;
+  --color-dark: #1a1a1a;
+  --color-gray: #666666;
+  --color-gray-light: #f5f0eb;
+  --color-red-icon: #c0392b;
+  --color-border: #e8e0d8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand-orange: var(--color-orange);
+  --color-brand-orange-light: var(--color-orange-light);
+  --color-brand-green: var(--color-green);
+  --color-brand-green-dark: var(--color-green-dark);
+  --color-brand-yellow: var(--color-yellow);
+  --color-brand-dark: var(--color-dark);
+  --color-brand-gray: var(--color-gray);
+  --color-brand-gray-light: var(--color-gray-light);
+  --color-brand-red: var(--color-red-icon);
+  --color-brand-border: var(--color-border);
+
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .container-custom {
+    @apply w-full max-w-[1200px] mx-auto px-6;
+  }
 }
