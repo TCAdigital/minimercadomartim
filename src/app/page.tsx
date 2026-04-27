@@ -222,15 +222,7 @@ export default function Home() {
               src="/mini-mercado-martin-v2.png" 
               alt="Mini Mercado Martin" 
               className="h-14 md:h-16 w-auto object-contain mb-6"
-              onError={(e) => {
-                const target = e.target as HTMLElement;
-                target.style.display = 'none';
-                target.nextElementSibling?.classList.remove('hidden');
-              }}
             />
-            <span className="hidden font-serif font-bold text-3xl text-white tracking-tight mb-6">
-              Mini Mercado <span className="text-[var(--color-brand-green)]">Martin</span>
-            </span>
             <p className="max-w-sm mb-6 text-gray-400">
               Qualidade, frescor e preço justo todos os dias. A sua mercearia de confiança no bairro.
             </p>
