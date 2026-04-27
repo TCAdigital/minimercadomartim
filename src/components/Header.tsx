@@ -72,8 +72,8 @@ export function Header() {
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Entregamos em</span>
-                <span className="text-sm font-medium text-[var(--color-brand-dark)]">Toda a Região</span>
+                <span className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Entrega</span>
+                <span className="text-sm font-bold text-[var(--color-brand-orange)]">GRÁTIS</span>
               </div>
             </div>
 
