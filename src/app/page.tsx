@@ -100,7 +100,7 @@ export default function Home() {
         <section id="vitrine" className="py-16 bg-gray-50/50">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">Novidades</span>
+              <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">Os Melhores</span>
               <h2 className="text-4xl font-serif font-bold text-[var(--color-brand-dark)]">
                 Produtos em <span className="italic font-light underline decoration-[var(--color-brand-green)] underline-offset-4">Destaque</span>
               </h2>
@@ -140,10 +140,10 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
                   <p>
-                    O Mini Mercado Martin nasceu do sonho de trazer para o bairro a qualidade das grandes feiras com o atendimento caloroso que só a vizinhança conhece. 
+                    O Mini Mercado Martin nasceu do sonho de trazer para o bairro a qualidade dos grandes mercados com o atendimento caloroso que só a vizinhança conhece. 
                   </p>
                   <p>
-                    Selecionamos pessoalmente cada fruta, legume e corte de carne, trabalhando lado a lado com produtores locais para garantir que apenas o melhor chegue à sua mesa. Acreditamos que uma boa alimentação começa com ingredientes frescos, cultivados com respeito e carinho.
+                    Selecionamos pessoalmente cada fruta, legume e corte de carne, trabalhando lado a lado com produtores locais para garantir que apenas o melhor chegue à sua mesa. Além disso, destacamo-nos por ter os melhores preços em bebidas, nos orgulhando de ser um dos principais fornecedores da cidade para lanchonetes. Acreditamos que qualidade, bom atendimento e economia devem sempre caminhar juntos.
                   </p>
                 </div>
                 <div className="flex gap-8 border-t border-gray-200 pt-8">
@@ -187,9 +187,14 @@ export default function Home() {
                     <span>Segunda a Sábado: 07h às 20h<br/>Domingo: 07h às 13h</span>
                   </div>
                 </div>
-                <button className="mt-8 w-full bg-gray-900 text-white py-3 rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-black transition-colors">
+                <a 
+                  href="https://www.google.com/maps/dir/?api=1&destination=R.+Paulo+de+Araújo,+700+-+Nova+Granada,+SP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 w-full bg-gray-900 text-white py-3 rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-black transition-colors flex items-center justify-center block text-center"
+                >
                   Traçar Rota
-                </button>
+                </a>
               </div>
               <div className="md:w-2/3 h-[400px] md:h-auto bg-gray-200">
                 <iframe 
