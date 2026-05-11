@@ -6,19 +6,15 @@ import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote,
 
 import { PromoSlider } from "@/components/PromoSlider";
 
-// Mock data
-const MOCK_PRODUCTS = [
-  { id: "1", name: "Tomate Carmem Selecionado (kg)", price: 6.99, oldPrice: 8.99, category: "Hortifruti", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80" },
-  { id: "2", name: "Banana Prata Orgânica (kg)", price: 5.49, category: "Hortifruti", image: "https://images.unsplash.com/photo-1571501474554-25b0f4439169?w=400&q=80" },
-  { id: "3", name: "Pão Francês Fresquinho (kg)", price: 14.90, category: "Padaria", image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&q=80" },
-  { id: "4", name: "Azeite de Oliva Extra Virgem 500ml", price: 29.90, oldPrice: 35.90, category: "Mercearia", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80" },
-  { id: "5", name: "Costela Bovina Resfriada (kg)", price: 24.99, category: "Carnes", image: "https://images.unsplash.com/photo-1603048297172-c92544798d5e?w=400&q=80" },
-  { id: "6", name: "Maçã Fuji Premium (kg)", price: 9.99, oldPrice: 12.99, category: "Hortifruti", image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=80" },
-  { id: "7", name: "Leite Integral 1L", price: 4.59, category: "Laticínios", image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&q=80" },
-  { id: "8", name: "Café Torrado e Moído 500g", price: 18.90, category: "Mercearia", image: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=400&q=80" },
-];
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const products = await prisma.product.findMany({
+    orderBy: { createdAt: "desc" },
+  });
+
   return (
     <>
       <Header />
@@ -107,7 +103,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {MOCK_PRODUCTS.map((product) => (
+              {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

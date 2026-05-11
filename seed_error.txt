@@ -1,0 +1,26 @@
+﻿node.exe : C:\Users\User\Desktop\minimercadomartim\node_modules\@prisma\client\src\runtime\utils\validatePrismaClientOp
+tions.ts:260
+No linha:1 caractere:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\User\D...tOptions.ts:260:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+      throw new PrismaClientConstructorValidationError(
+            ^
+
+PrismaClientConstructorValidationError: Unknown property datasources provided to PrismaClient constructor.
+Read more at https://pris.ly/d/client-constructor
+    at validatePrismaClientOptions (C:\Users\User\Desktop\minimercadomartim\node_modules\@prisma\client\src\runtime\uti
+ls\validatePrismaClientOptions.ts:260:13)
+    at new t (C:\Users\User\Desktop\minimercadomartim\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:358:7)
+    at <anonymous> (C:\Users\User\Desktop\minimercadomartim\prisma\seed.ts:3:16)
+    at Object.<anonymous> (C:\Users\User\Desktop\minimercadomartim\prisma\seed.ts:40:4)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object.transformer (C:\Users\User\Desktop\minimercadomartim\node_modules\tsx\dist\register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+
+Node.js v24.11.1
