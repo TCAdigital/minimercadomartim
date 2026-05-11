@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useCartStore } from "@/store/useCartStore";
 
 export function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const { isCartOpen } = useCartStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +26,8 @@ export function WhatsAppButton() {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#1ebd5b] transition-all duration-300 hover:scale-110 active:scale-95 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
+      className={`fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#1ebd5b] transition-all duration-300 hover:scale-110 active:scale-95 ${
+        isVisible && !isCartOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
       }`}
       aria-label="Falar no WhatsApp"
     >
