@@ -6,14 +6,25 @@ import { redirect } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 export default async function BannersPage() {
-  const cookieStore = await cookies();
-  const session = cookieStore.get("admin_session");
+  let slides = [];
+  let isAdmin = false;
 
-  if (!session || session.value !== "true") {
+  try {
+    const cookieStore = await cookies();
+    isAdmin = cookieStore.get("admin_session")?.value === "true";
+  } catch (error) {
+    console.error("Erro ao verificar cookies em banners:", error);
+  }
+
+  if (!isAdmin) {
     redirect("/admin/login");
   }
 
-  const slides = await getHeroSlides();
+  try {
+    slides = await getHeroSlides();
+  } catch (error) {
+    console.error("Erro ao carregar banners na página admin:", error);
+  }
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -22,7 +33,7 @@ export default async function BannersPage() {
         <p className="text-gray-500 mt-2">Personalize os slides da página principal (Hero Section).</p>
       </header>
 
-      <BannerList initialSlides={slides} />
+      <BannerList initialSlides={slides || []} />
     </div>
   );
 }
