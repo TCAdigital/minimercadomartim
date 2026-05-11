@@ -19,6 +19,10 @@ export default async function Home() {
     orderBy: { order: "asc" },
   });
 
+  const promoSlides = await prisma.promoSlide.findMany({
+    orderBy: { order: "asc" },
+  });
+
   return (
     <>
       <Header />
@@ -115,7 +119,7 @@ export default async function Home() {
         </section>
 
         {/* PROMO SLIDER */}
-        <PromoSlider />
+        <PromoSlider slides={promoSlides} />
 
         {/* ABOUT SECTION */}
         <section className="py-20 bg-[#faf7f3]">

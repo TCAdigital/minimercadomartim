@@ -115,3 +115,67 @@ export async function deleteHeroSlide(id: string) {
   revalidatePath("/admin/banners");
   revalidatePath("/");
 }
+
+// Promo Slides Actions
+export async function getPromoSlides() {
+  try {
+    return await prisma.promoSlide.findMany({
+      orderBy: { order: "asc" },
+    });
+  } catch (error) {
+    console.error("Erro ao buscar promos:", error);
+    return [];
+  }
+}
+
+export async function createPromoSlide(formData: FormData) {
+  const tag = formData.get("tag") as string;
+  const title = formData.get("title") as string;
+  const highlight = formData.get("highlight") as string;
+  const description = formData.get("description") as string;
+  const buttonText = formData.get("buttonText") as string;
+  const image = formData.get("image") as string;
+  const bgColor = formData.get("bgColor") as string;
+  const tagColor = formData.get("tagColor") as string;
+  const highlightColor = formData.get("highlightColor") as string;
+  const buttonColor = formData.get("buttonColor") as string;
+  const order = parseInt(formData.get("order") as string || "0");
+
+  await prisma.promoSlide.create({
+    data: { tag, title, highlight, description, buttonText, image, bgColor, tagColor, highlightColor, buttonColor, order },
+  });
+
+  revalidatePath("/admin/promos");
+  revalidatePath("/");
+}
+
+export async function updatePromoSlide(id: string, formData: FormData) {
+  const tag = formData.get("tag") as string;
+  const title = formData.get("title") as string;
+  const highlight = formData.get("highlight") as string;
+  const description = formData.get("description") as string;
+  const buttonText = formData.get("buttonText") as string;
+  const image = formData.get("image") as string;
+  const bgColor = formData.get("bgColor") as string;
+  const tagColor = formData.get("tagColor") as string;
+  const highlightColor = formData.get("highlightColor") as string;
+  const buttonColor = formData.get("buttonColor") as string;
+  const order = parseInt(formData.get("order") as string || "0");
+
+  await prisma.promoSlide.update({
+    where: { id },
+    data: { tag, title, highlight, description, buttonText, image, bgColor, tagColor, highlightColor, buttonColor, order },
+  });
+
+  revalidatePath("/admin/promos");
+  revalidatePath("/");
+}
+
+export async function deletePromoSlide(id: string) {
+  await prisma.promoSlide.delete({
+    where: { id },
+  });
+
+  revalidatePath("/admin/promos");
+  revalidatePath("/");
+}

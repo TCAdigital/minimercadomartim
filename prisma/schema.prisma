@@ -34,3 +34,20 @@ model HeroSlide {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model PromoSlide {
+  id             String   @id @default(uuid())
+  tag            String
+  title          String
+  highlight      String
+  description    String
+  buttonText     String
+  image          String
+  bgColor        String   @default("#1a1a1a")
+  tagColor       String   @default("bg-[var(--color-brand-orange)]")
+  highlightColor String   @default("text-[var(--color-brand-yellow)]")
+  buttonColor    String   @default("bg-[var(--color-brand-green)]")
+  order          Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
