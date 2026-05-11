@@ -1,4 +1,4 @@
-import { getHeroSlides } from "../actions";
+import { getHeroSlides } from "../../actions";
 import { BannerList } from "./BannerList";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";

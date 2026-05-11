@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Edit2, Trash2, Image as ImageIcon, X, MoveUp, MoveDown } from "lucide-react";
-import { createHeroSlide, updateHeroSlide, deleteHeroSlide } from "../actions";
+import { createHeroSlide, updateHeroSlide, deleteHeroSlide } from "../../actions";
 import { ImageUpload } from "@/components/ImageUpload";
 
 interface HeroSlide {
