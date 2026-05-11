@@ -1,4 +1,4 @@
-import { getProducts } from "../actions";
+import { getProducts } from "@/app/admin/actions";
 import { ProductList } from "./ProductList";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";

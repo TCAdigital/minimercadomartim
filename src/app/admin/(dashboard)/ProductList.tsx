@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Plus, Edit2, Trash2, Search, X, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/lib/utils";
-import { createProduct, updateProduct, deleteProduct } from "../actions";
+import { createProduct, updateProduct, deleteProduct } from "@/app/admin/actions";
 import { ImageUpload } from "@/components/ImageUpload";
 
 interface Product {
