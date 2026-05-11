@@ -22,10 +22,10 @@ Transformar a landing page estática do Mini Mercado Martin em uma aplicação N
 - **Meta de Design:** Manter a topologia/layout atuais, mas aplicar refinamentos premium (sombras, hover effects, transições suaves, tipografia refinada).
 
 ### Fase 3: Funcionalidade de Carrinho (WhatsApp)
-- [ ] Estado Global usando Zustand para a "Cesta de Compras"
-- [ ] Drawer/Modal lateral para ver a cesta
-- [ ] Função para gerar a mensagem formatada para o WhatsApp (ex: "Olá, gostaria de encomendar os seguintes produtos: 1x Maçã, 2x Banana...")
-- [ ] Redirecionamento para a API do WhatsApp.
+- [x] Estado Global usando Zustand para a "Cesta de Compras"
+- [x] Drawer/Modal lateral para ver a cesta
+- [x] Função para gerar a mensagem formatada para o WhatsApp (ex: "Olá, gostaria de encomendar os seguintes produtos: 1x Maçã, 2x Banana...")
+- [x] Redirecionamento para a API do WhatsApp.
 
 ### Fase 4: Painel Administrativo
 - [ ] Criar banco de dados simples (Prisma + SQLite local para dev) para armazenar os produtos.
