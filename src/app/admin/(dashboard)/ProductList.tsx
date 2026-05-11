@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Edit2, Trash2, Search, X } from "lucide-react";
+import { Plus, Edit2, Trash2, Search, X, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/lib/utils";
 import { createProduct, updateProduct, deleteProduct } from "../actions";
 
