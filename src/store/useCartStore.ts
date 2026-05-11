@@ -4,9 +4,11 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  oldPrice?: number | null;
+  oldPrice: number | null;
   image: string;
   category: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface CartItem extends Product {
