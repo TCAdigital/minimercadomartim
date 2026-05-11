@@ -14,9 +14,54 @@ async function main() {
     { name: "Café Torrado e Moído 500g", price: 18.90, category: "Mercearia", image: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=400&q=80" },
   ];
 
+  const heroSlides = [
+    {
+      title: "O melhor",
+      highlight: "preço da cidade",
+      subtitle: "em bebidas.",
+      description: "Cervejas trincando, vinhos selecionados e as melhores marcas. Celebre com economia e qualidade superior.",
+      image: "/hero/drinks.png",
+      bgColor: "var(--color-brand-orange)",
+      topBadge: "Ofertas Imperdíveis",
+      badgeText: "As Melhores\nOfertas",
+      badgeIcon: "Bottle",
+      order: 1
+    },
+    {
+      title: "O melhor",
+      highlight: "hortifruti",
+      subtitle: "para você.",
+      description: "Qualidade de feira com a conveniência de mercado. Compre online e retire na loja ou receba em casa.",
+      image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800&auto=format&fit=crop",
+      bgColor: "var(--color-brand-green)",
+      topBadge: "Produtos Frescos Todos os Dias",
+      badgeText: "100%\nOrgânico",
+      badgeIcon: "Leaf",
+      order: 2
+    },
+    {
+      title: "Ingredientes",
+      highlight: "do dia a dia",
+      subtitle: "perto de você.",
+      description: "Arroz, feijão, café e tudo o que não pode faltar na sua dispensa. Qualidade e economia em um só lugar.",
+      image: "/hero/grocery.png",
+      bgColor: "#4a3728",
+      topBadge: "Tudo para sua Dispensa",
+      badgeText: "Sua Casa\nCompleta",
+      badgeIcon: "ShoppingBag",
+      order: 3
+    }
+  ];
+
   for (const product of products) {
     await prisma.product.create({
       data: product,
+    });
+  }
+
+  for (const slide of heroSlides) {
+    await prisma.heroSlide.create({
+      data: slide,
     });
   }
 

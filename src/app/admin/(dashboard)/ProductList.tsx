@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus, Edit2, Trash2, Search, X, ShoppingBag } from "lucide-react";
 import { formatCurrency } from "@/lib/utils";
 import { createProduct, updateProduct, deleteProduct } from "../actions";
+import { ImageUpload } from "@/components/ImageUpload";
 
 interface Product {
   id: string;
@@ -19,6 +20,8 @@ export function ProductList({ initialProducts }: { initialProducts: Product[] })
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [imageUrl, setImageUrl] = useState("");
+
 
   const filteredProducts = products.filter(p => 
     p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -28,14 +31,14 @@ export function ProductList({ initialProducts }: { initialProducts: Product[] })
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+    formData.set("image", imageUrl);
+
     if (editingProduct) {
       await updateProduct(editingProduct.id, formData);
     } else {
       await createProduct(formData);
     }
     
-    // Simple way to refresh: reload page or use useTransition
     window.location.reload();
   };
 
@@ -63,6 +66,7 @@ export function ProductList({ initialProducts }: { initialProducts: Product[] })
         <button 
           onClick={() => {
             setEditingProduct(null);
+            setImageUrl("");
             setIsModalOpen(true);
           }}
           className="bg-[var(--color-brand-green)] hover:bg-[var(--color-brand-green-dark)] text-white px-6 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-green-900/10"
@@ -111,6 +115,7 @@ export function ProductList({ initialProducts }: { initialProducts: Product[] })
                     <button 
                       onClick={() => {
                         setEditingProduct(product);
+                        setImageUrl(product.image);
                         setIsModalOpen(true);
                       }}
                       className="p-2 text-gray-400 hover:text-[var(--color-brand-green)] hover:bg-green-50 rounded-lg transition-all"
@@ -200,13 +205,10 @@ export function ProductList({ initialProducts }: { initialProducts: Product[] })
               </div>
 
               <div className="grid gap-2">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">URL da Imagem</label>
-                <input 
-                  name="image" 
-                  defaultValue={editingProduct?.image} 
-                  required 
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 text-sm outline-none focus:border-[var(--color-brand-green)] transition-all"
-                  placeholder="https://images.unsplash.com/..."
+                <ImageUpload 
+                  label="Imagem do Produto" 
+                  value={imageUrl} 
+                  onChange={setImageUrl} 
                 />
               </div>
 

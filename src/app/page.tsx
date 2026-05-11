@@ -15,13 +15,17 @@ export default async function Home() {
     orderBy: { createdAt: "desc" },
   });
 
+  const heroSlides = await prisma.heroSlide.findMany({
+    orderBy: { order: "asc" },
+  });
+
   return (
     <>
       <Header />
       <CartDrawer />
       
       <main className="flex-1">
-        <Hero />
+        <Hero slides={heroSlides} />
 
         {/* FEATURES */}
         <section className="bg-white border-b border-gray-100 py-10 relative z-10 -mt-6 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">

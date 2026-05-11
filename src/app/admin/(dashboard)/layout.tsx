@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
-import { LayoutDashboard, ShoppingBag, LogOut, Home } from "lucide-react";
+import { LayoutDashboard, ShoppingBag, LogOut, Home, Image } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
@@ -16,6 +16,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           <Link href="/admin" className="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-xl font-medium transition-colors hover:bg-white/20">
             <LayoutDashboard className="w-5 h-5 text-[var(--color-brand-orange)]" />
             Dashboard
+          </Link>
+          <Link href="/admin/banners" className="flex items-center gap-3 px-4 py-3 text-gray-400 rounded-xl font-medium transition-colors hover:bg-white/10 hover:text-white">
+            <Image className="w-5 h-5" />
+            Banners (Hero)
           </Link>
           <Link href="/admin/produtos" className="flex items-center gap-3 px-4 py-3 text-gray-400 rounded-xl font-medium transition-colors hover:bg-white/10 hover:text-white">
             <ShoppingBag className="w-5 h-5" />
