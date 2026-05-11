@@ -10,10 +10,28 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
       <aside className="w-64 bg-[var(--color-brand-dark)] text-white flex flex-col hidden md:flex">
-        <div className="p-8 pb-4">
+        <div className="p-6 pb-2">
           <img src="/mini-mercado-martin-v2.png" alt="Logo" className="h-10 w-auto invert brightness-0" />
           <p className="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-widest">Painel Admin</p>
         </div>
+
+        {/* Support WhatsApp - always visible at top */}
+        <div className="px-4 pb-4">
+          <a
+            href={SUPPORT_WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] w-full"
+          >
+            <MessageCircle className="w-5 h-5 shrink-0" />
+            <div className="leading-tight">
+              <span className="block text-xs font-bold">Suporte Técnico</span>
+              <span className="block text-[10px] text-[#25D366]/70">Falar com a equipe</span>
+            </div>
+          </a>
+        </div>
+
+        <div className="h-px bg-white/5 mx-4 mb-2" />
 
         <nav className="flex-1 px-4 py-4 space-y-2">
           <Link href="/admin" className="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-xl font-medium transition-colors hover:bg-white/20">
@@ -34,21 +52,6 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </Link>
         </nav>
 
-        {/* Support WhatsApp - fixed at bottom */}
-        <div className="p-4 border-t border-white/5">
-          <a
-            href={SUPPORT_WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366]"
-          >
-            <MessageCircle className="w-5 h-5" />
-            <div className="leading-tight">
-              <span className="block text-xs font-bold">Suporte Técnico</span>
-              <span className="block text-[10px] text-[#25D366]/70">Falar com a equipe</span>
-            </div>
-          </a>
-        </div>
       </aside>
 
       {/* Main Content */}
