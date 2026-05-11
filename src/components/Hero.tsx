@@ -12,13 +12,13 @@ const IconMap = {
 const SLIDES = [
   {
     id: 1,
-    title: "O melhor preço",
-    highlight: "da cidade",
+    title: "O melhor",
+    highlight: "preço da cidade",
     subtitle: "em bebidas.",
     description: "Cervejas trincando, vinhos selecionados e as melhores marcas. Celebre com economia e qualidade superior.",
     bgImage: "/hero/drinks.png",
     mainImage: "/hero/drinks.png",
-    color: "#0f172a",
+    color: "var(--color-brand-orange)",
     topBadge: "Ofertas Imperdíveis",
     badge: {
       text: "As Melhores\nOfertas",
@@ -33,7 +33,7 @@ const SLIDES = [
     description: "Qualidade de feira com a conveniência de mercado. Compre online e retire na loja ou receba em casa.",
     bgImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop",
     mainImage: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800&auto=format&fit=crop",
-    color: "var(--color-brand-orange)",
+    color: "var(--color-brand-green)",
     topBadge: "Produtos Frescos Todos os Dias",
     badge: {
       text: "100%\nOrgânico",
@@ -42,13 +42,13 @@ const SLIDES = [
   },
   {
     id: 3,
-    title: "Ingredientes do",
-    highlight: "dia a dia",
+    title: "Ingredientes",
+    highlight: "do dia a dia",
     subtitle: "perto de você.",
     description: "Arroz, feijão, café e tudo o que não pode faltar na sua dispensa. Qualidade e economia em um só lugar.",
     bgImage: "/hero/grocery.png",
     mainImage: "/hero/grocery.png",
-    color: "var(--color-brand-green)",
+    color: "#4a3728",
     topBadge: "Tudo para sua Dispensa",
     badge: {
       text: "Sua Casa\nCompleta",
