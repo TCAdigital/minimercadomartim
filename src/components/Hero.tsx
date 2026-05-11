@@ -1,11 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight, Leaf, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Leaf, ChevronLeft, ChevronRight, Beer, ShoppingBag } from "lucide-react";
+
+const IconMap = {
+  Leaf: Leaf,
+  Bottle: Beer,
+  ShoppingBag: ShoppingBag,
+};
 
 const SLIDES = [
   {
     id: 1,
+    title: "O melhor preço",
+    highlight: "da cidade",
+    subtitle: "em bebidas.",
+    description: "Cervejas trincando, vinhos selecionados e as melhores marcas. Celebre com economia e qualidade superior.",
+    bgImage: "/hero/drinks.png",
+    mainImage: "/hero/drinks.png",
+    color: "#0f172a",
+    topBadge: "Ofertas Imperdíveis",
+    badge: {
+      text: "As Melhores\nOfertas",
+      icon: "Bottle"
+    }
+  },
+  {
+    id: 2,
     title: "O melhor",
     highlight: "hortifruti",
     subtitle: "para você.",
@@ -13,26 +34,26 @@ const SLIDES = [
     bgImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop",
     mainImage: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800&auto=format&fit=crop",
     color: "var(--color-brand-orange)",
-  },
-  {
-    id: 2,
-    title: "Frescor",
-    highlight: "orgânico",
-    subtitle: "todo dia.",
-    description: "Trabalhamos com produtores locais para garantir alimentos frescos e livres de agrotóxicos na sua mesa.",
-    bgImage: "https://images.unsplash.com/photo-1596199050105-6d5d32222916?q=80&w=2000&auto=format&fit=crop",
-    mainImage: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
-    color: "var(--color-brand-green)",
+    topBadge: "Produtos Frescos Todos os Dias",
+    badge: {
+      text: "100%\nOrgânico",
+      icon: "Leaf"
+    }
   },
   {
     id: 3,
-    title: "Temperos",
-    highlight: "especiarias",
-    subtitle: "e muito mais.",
-    description: "Uma seleção premium de grãos, temperos e azeites para deixar suas receitas ainda mais saborosas.",
-    bgImage: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2000&auto=format&fit=crop",
-    mainImage: "https://images.unsplash.com/photo-1532336414038-cb11cb146b8c?q=80&w=800&auto=format&fit=crop",
-    color: "#7b3f00",
+    title: "Ingredientes do",
+    highlight: "dia a dia",
+    subtitle: "perto de você.",
+    description: "Arroz, feijão, café e tudo o que não pode faltar na sua dispensa. Qualidade e economia em um só lugar.",
+    bgImage: "/hero/grocery.png",
+    mainImage: "/hero/grocery.png",
+    color: "var(--color-brand-green)",
+    topBadge: "Tudo para sua Dispensa",
+    badge: {
+      text: "Sua Casa\nCompleta",
+      icon: "ShoppingBag"
+    }
   }
 ];
 
@@ -71,8 +92,11 @@ export function Hero() {
         {/* Text Content */}
         <div className="max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700" key={`text-${slide.id}`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6">
-            <Leaf className="w-4 h-4 text-[var(--color-brand-yellow)]" />
-            Produtos Frescos Todos os Dias
+            {(() => {
+              const Icon = IconMap[slide.badge.icon as keyof typeof IconMap] || Leaf;
+              return <Icon className="w-4 h-4 text-[var(--color-brand-yellow)]" />;
+            })()}
+            {slide.topBadge}
           </div>
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
             {slide.title} <br />
@@ -90,9 +114,14 @@ export function Hero() {
         
         {/* Image Content */}
         <div className="hidden md:block relative animate-in fade-in slide-in-from-right-8 duration-700" key={`img-${slide.id}`}>
-          <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-xs uppercase text-center shadow-xl animate-pulse z-20">
-            <Leaf className="w-5 h-5 text-[var(--color-brand-orange)] mb-1" />
-            100%<br/>Orgânico
+          <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-[10px] uppercase text-center shadow-xl animate-pulse z-20 px-2 leading-tight">
+            {(() => {
+              const Icon = IconMap[slide.badge.icon as keyof typeof IconMap] || Leaf;
+              return <Icon className="w-5 h-5 text-[var(--color-brand-orange)] mb-1" />;
+            })()}
+            {slide.badge.text.split('\n').map((line, i) => (
+              <span key={i}>{line}<br/></span>
+            ))}
           </div>
           <img 
             src={slide.mainImage} 
