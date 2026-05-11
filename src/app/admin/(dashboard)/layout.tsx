@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LayoutDashboard, ShoppingBag, LogOut, Home, Image, Tag, MessageCircle } from "lucide-react";
 
 // Support WhatsApp number (dev company)
-const SUPPORT_WHATSAPP = "https://wa.me/5511999999999?text=Olá!%20Preciso%20de%20suporte%20com%20o%20painel%20do%20Mini%20Mercado%20Martin.";
+const SUPPORT_WHATSAPP = "https://wa.me/5517991185439?text=Olá!%20Preciso%20de%20suporte%20com%20o%20painel%20do%20Mini%20Mercado%20Martin.";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
