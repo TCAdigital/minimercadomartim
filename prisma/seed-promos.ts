@@ -7,42 +7,48 @@ async function main() {
 
   const promos = [
     {
+      type: "TOPO",
       tag: "CESTA BÁSICA",
       title: "Essenciais",
       highlight: "para a casa",
-      description: "Tudo o que sua família precisa com os melhores preços da região.",
+      description: "",
       buttonText: "VER OPÇÕES",
-      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800",
+      href: "/#vitrine",
+      image: "https://images.unsplash.com/photo-1543168256-4154204ceaff?q=80&w=400&auto=format&fit=crop",
       bgColor: "#619d24",
-      tagColor: "bg-white/20",
-      highlightColor: "text-white/90",
-      buttonColor: "bg-white text-[#619d24]",
+      textColor: "#ffffff",
+      buttonBgColor: "#ffffff",
+      buttonTextColor: "#619d24",
       order: 1
     },
     {
+      type: "TOPO",
       tag: "AÇOUGUE PREMIUM",
       title: "Cortes",
       highlight: "Especiais",
-      description: "Carnes selecionadas e cortes nobres preparados na hora para você.",
+      description: "",
       buttonText: "VER OPÇÕES",
-      image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
+      href: "/#vitrine",
+      image: "https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=400&auto=format&fit=crop",
       bgColor: "#d34b1e",
-      tagColor: "bg-white/20",
-      highlightColor: "text-white/90",
-      buttonColor: "bg-white text-[#d34b1e]",
+      textColor: "#ffffff",
+      buttonBgColor: "#ffffff",
+      buttonTextColor: "#d34b1e",
       order: 2
     },
     {
+      type: "MEIO",
       tag: "OFERTA ESPECIAL",
       title: "Sexta-feira do",
       highlight: "Hortifruti",
       description: "Toda sexta-feira, frutas e verduras com até 30% de desconto. Aproveite para encher a geladeira!",
       buttonText: "VER OFERTAS",
-      image: "https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&q=80&w=800",
+      href: "/#vitrine",
+      image: "https://images.unsplash.com/photo-1610348725531-843dff563e2c?q=80&w=800&auto=format&fit=crop",
       bgColor: "#619d24",
-      tagColor: "bg-[#facc15] text-black",
-      highlightColor: "text-white",
-      buttonColor: "bg-white text-[#619d24]",
+      textColor: "#ffffff",
+      buttonBgColor: "#ffffff",
+      buttonTextColor: "#619d24",
       order: 3
     }
   ]
@@ -51,7 +57,7 @@ async function main() {
     await prisma.promoSlide.create({ data: promo })
   }
 
-  console.log('✅ Banners promocionais cadastrados com sucesso!')
+  console.log('✅ Banners promocionais (Topo e Meio) cadastrados com sucesso!')
 }
 
 main()

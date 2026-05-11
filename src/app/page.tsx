@@ -55,47 +55,83 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* BANNERS (2 COLUMNS) */}
+        {/* BANNERS (2 COLUMNS - DYNAMIC) */}
         <section className="py-16 bg-gray-50/50">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Banner 1 */}
-              <div className="bg-[var(--color-brand-green)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group">
-                <div className="absolute -right-10 -top-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
-                <div className="relative z-10 max-w-[200px]">
-                  <span className="text-green-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Cesta Básica</span>
-                  <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">
-                    Essenciais <br/><span className="italic font-light">para a casa</span>
-                  </h3>
-                  <button className="text-white text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
-                    Ver Opções <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-                <img 
-                  src="https://images.unsplash.com/photo-1543168256-4154204ceaff?q=80&w=400&auto=format&fit=crop" 
-                  alt="Mercearia" 
-                  className="w-40 h-40 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
-                />
-              </div>
+              {promoSlides.filter(s => s.type === "TOPO").length > 0 ? (
+                promoSlides.filter(s => s.type === "TOPO").map((slide) => (
+                  <div 
+                    key={slide.id}
+                    className="rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group min-h-[280px]"
+                    style={{ backgroundColor: slide.bgColor }}
+                  >
+                    <div className="absolute -right-10 -top-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
+                    <div className="relative z-10 max-w-[200px]">
+                      <span className="font-semibold text-[10px] tracking-wider uppercase mb-3 block opacity-80" style={{ color: slide.textColor }}>
+                        {slide.tag}
+                      </span>
+                      <h3 className="text-3xl font-serif font-bold mb-6 leading-tight" style={{ color: slide.textColor }}>
+                        {slide.title} <br/><span className="italic font-light opacity-90">{slide.highlight}</span>
+                      </h3>
+                      <Link 
+                        href={slide.href} 
+                        className="text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all group/btn"
+                        style={{ color: slide.textColor }}
+                      >
+                        {slide.buttonText} <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                      </Link>
+                    </div>
+                    {slide.image && (
+                      <img 
+                        src={slide.image} 
+                        alt={slide.title} 
+                        className="w-44 h-44 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                      />
+                    )}
+                  </div>
+                ))
+              ) : (
+                <>
+                  {/* Fallback Banner 1 */}
+                  <div className="bg-[var(--color-brand-green)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group min-h-[280px]">
+                    <div className="absolute -right-10 -top-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
+                    <div className="relative z-10 max-w-[200px]">
+                      <span className="text-green-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Cesta Básica</span>
+                      <h3 className="text-3xl font-serif font-bold text-white mb-6 leading-tight">
+                        Essenciais <br/><span className="italic font-light">para a casa</span>
+                      </h3>
+                      <Link href="/#vitrine" className="text-white text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
+                        Ver Opções <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1543168256-4154204ceaff?q=80&w=400&auto=format&fit=crop" 
+                      alt="Mercearia" 
+                      className="w-44 h-44 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                    />
+                  </div>
 
-              {/* Banner 2 */}
-              <div className="bg-[var(--color-brand-orange)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group">
-                <div className="absolute -right-10 -bottom-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
-                <div className="relative z-10 max-w-[200px]">
-                  <span className="text-orange-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Açougue Premium</span>
-                  <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">
-                    Cortes <br/><span className="italic font-light">Especiais</span>
-                  </h3>
-                  <button className="text-white text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
-                    Ver Opções <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-                <img 
-                  src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=400&auto=format&fit=crop" 
-                  alt="Açougue" 
-                  className="w-40 h-40 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
-                />
-              </div>
+                  {/* Fallback Banner 2 */}
+                  <div className="bg-[var(--color-brand-orange)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group min-h-[280px]">
+                    <div className="absolute -right-10 -bottom-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
+                    <div className="relative z-10 max-w-[200px]">
+                      <span className="text-orange-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Açougue Premium</span>
+                      <h3 className="text-3xl font-serif font-bold text-white mb-6 leading-tight">
+                        Cortes <br/><span className="italic font-light">Especiais</span>
+                      </h3>
+                      <Link href="/#vitrine" className="text-white text-sm font-bold uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
+                        Ver Opções <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=400&auto=format&fit=crop" 
+                      alt="Açougue" 
+                      className="w-44 h-44 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </section>

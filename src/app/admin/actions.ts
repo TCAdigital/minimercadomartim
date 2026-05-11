@@ -129,20 +129,25 @@ export async function getPromoSlides() {
 }
 
 export async function createPromoSlide(formData: FormData) {
+  const type = formData.get("type") as string;
   const tag = formData.get("tag") as string;
   const title = formData.get("title") as string;
   const highlight = formData.get("highlight") as string;
   const description = formData.get("description") as string;
   const buttonText = formData.get("buttonText") as string;
+  const href = formData.get("href") as string;
   const image = formData.get("image") as string;
   const bgColor = formData.get("bgColor") as string;
-  const tagColor = formData.get("tagColor") as string;
-  const highlightColor = formData.get("highlightColor") as string;
-  const buttonColor = formData.get("buttonColor") as string;
+  const textColor = formData.get("textColor") as string;
+  const buttonBgColor = formData.get("buttonBgColor") as string;
+  const buttonTextColor = formData.get("buttonTextColor") as string;
   const order = parseInt(formData.get("order") as string || "0");
 
   await prisma.promoSlide.create({
-    data: { tag, title, highlight, description, buttonText, image, bgColor, tagColor, highlightColor, buttonColor, order },
+    data: { 
+      type, tag, title, highlight, description, buttonText, href, image, 
+      bgColor, textColor, buttonBgColor, buttonTextColor, order 
+    },
   });
 
   revalidatePath("/admin/promos");
@@ -150,21 +155,26 @@ export async function createPromoSlide(formData: FormData) {
 }
 
 export async function updatePromoSlide(id: string, formData: FormData) {
+  const type = formData.get("type") as string;
   const tag = formData.get("tag") as string;
   const title = formData.get("title") as string;
   const highlight = formData.get("highlight") as string;
   const description = formData.get("description") as string;
   const buttonText = formData.get("buttonText") as string;
+  const href = formData.get("href") as string;
   const image = formData.get("image") as string;
   const bgColor = formData.get("bgColor") as string;
-  const tagColor = formData.get("tagColor") as string;
-  const highlightColor = formData.get("highlightColor") as string;
-  const buttonColor = formData.get("buttonColor") as string;
+  const textColor = formData.get("textColor") as string;
+  const buttonBgColor = formData.get("buttonBgColor") as string;
+  const buttonTextColor = formData.get("buttonTextColor") as string;
   const order = parseInt(formData.get("order") as string || "0");
 
   await prisma.promoSlide.update({
     where: { id },
-    data: { tag, title, highlight, description, buttonText, image, bgColor, tagColor, highlightColor, buttonColor, order },
+    data: { 
+      type, tag, title, highlight, description, buttonText, href, image, 
+      bgColor, textColor, buttonBgColor, buttonTextColor, order 
+    },
   });
 
   revalidatePath("/admin/promos");

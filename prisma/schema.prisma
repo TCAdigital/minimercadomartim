@@ -37,16 +37,18 @@ model HeroSlide {
 
 model PromoSlide {
   id             String   @id @default(uuid())
+  type           String   @default("MEIO") // "TOPO" ou "MEIO"
   tag            String
   title          String
   highlight      String
-  description    String
+  description    String?
   buttonText     String
+  href           String   @default("/#produtos")
   image          String
-  bgColor        String   @default("#1a1a1a")
-  tagColor       String   @default("bg-[var(--color-brand-orange)]")
-  highlightColor String   @default("text-[var(--color-brand-yellow)]")
-  buttonColor    String   @default("bg-[var(--color-brand-green)]")
+  bgColor        String   @default("#619d24")
+  textColor      String   @default("#ffffff")
+  buttonBgColor  String   @default("#ffffff")
+  buttonTextColor String  @default("#619d24")
   order          Int      @default(0)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
