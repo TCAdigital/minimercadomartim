@@ -4,9 +4,14 @@ import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 export async function getProducts() {
-  return await prisma.product.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  try {
+    return await prisma.product.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Erro ao buscar produtos:", error);
+    return [];
+  }
 }
 
 export async function createProduct(formData: FormData) {
@@ -51,9 +56,14 @@ export async function deleteProduct(id: string) {
 
 // Hero Slides Actions
 export async function getHeroSlides() {
-  return await prisma.heroSlide.findMany({
-    orderBy: { order: "asc" },
-  });
+  try {
+    return await prisma.heroSlide.findMany({
+      orderBy: { order: "asc" },
+    });
+  } catch (error) {
+    console.error("Erro ao buscar banners:", error);
+    return [];
+  }
 }
 
 export async function createHeroSlide(formData: FormData) {
