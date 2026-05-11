@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useCartStore } from "@/store/useCartStore";
 
 export function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false);
   const { isCartOpen } = useCartStore();
+  const pathname = usePathname();
+
+  // Don't show on admin pages
+  if (pathname?.startsWith("/admin")) return null;
 
   useEffect(() => {
     const handleScroll = () => {
