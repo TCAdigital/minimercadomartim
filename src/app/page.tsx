@@ -7,6 +7,7 @@ import { ArrowRight, Leaf, ShieldCheck, Truck, Clock, MapPin, Send, Star, Quote,
 import { PromoSlider } from "@/components/PromoSlider";
 
 import prisma from "@/lib/prisma";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
