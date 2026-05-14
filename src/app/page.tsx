@@ -46,8 +46,8 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
                 { icon: Leaf, title: "Produtos Orgânicos", desc: "Direto da fazenda" },
                 { icon: Clock, title: "Aberto Todos os Dias", desc: "Das 7h às 20h" }
               ].map((feature, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-[var(--color-brand-orange)] shrink-0">
+                <div key={i} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-2 md:gap-4">
+                  <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-[var(--color-brand-orange)] shrink-0 mx-auto md:mx-0">
                     <feature.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -60,19 +60,20 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
           </div>
         </section>
 
-        {/* BANNERS (2 COLUMNS - DYNAMIC) */}
-        <section className="py-16 bg-gray-50/50">
+        <div className="flex flex-col">
+          {/* BANNERS (2 COLUMNS - DYNAMIC) */}
+          <section className="order-2 md:order-1 py-16 bg-gray-50/50 pt-0 md:pt-16">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-6">
               {promoSlides.filter(s => s.type === "TOPO").length > 0 ? (
                 promoSlides.filter(s => s.type === "TOPO").map((slide) => (
                   <div 
                     key={slide.id}
-                    className="rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group min-h-[280px]"
+                    className="rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center md:justify-between relative overflow-hidden group"
                     style={{ backgroundColor: slide.bgColor }}
                   >
                     <div className="absolute -right-10 -top-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
-                    <div className="relative z-10 max-w-[200px]">
+                    <div className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1 max-w-[200px]">
                       <span className="font-semibold text-[10px] tracking-wider uppercase mb-3 block opacity-80" style={{ color: slide.textColor }}>
                         {slide.tag}
                       </span>
@@ -91,7 +92,7 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
                       <img 
                         src={slide.image} 
                         alt={slide.title} 
-                        className="w-56 h-56 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-8 -bottom-8 group-hover:-translate-y-2 transition-transform duration-500"
+                        className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-full border-4 border-white/20 shadow-xl mb-6 md:mb-0 md:absolute md:-right-8 md:-bottom-8 order-1 md:order-2 group-hover:-translate-y-2 transition-transform duration-500"
                       />
                     )}
                   </div>
@@ -99,9 +100,9 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
               ) : (
                 <>
                   {/* Fallback Banner 1 */}
-                  <div className="bg-[var(--color-brand-green)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group min-h-[280px]">
+                  <div className="bg-[var(--color-brand-green)] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center md:justify-between relative overflow-hidden group">
                     <div className="absolute -right-10 -top-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
-                    <div className="relative z-10 max-w-[200px]">
+                    <div className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1 max-w-[200px]">
                       <span className="text-green-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Cesta Básica</span>
                       <h3 className="text-3xl font-serif font-bold text-white mb-6 leading-tight">
                         Essenciais <br/><span className="italic font-light">para a casa</span>
@@ -113,14 +114,14 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
                     <img 
                       src="https://images.unsplash.com/photo-1543168256-4154204ceaff?q=80&w=400&auto=format&fit=crop" 
                       alt="Mercearia" 
-                      className="w-56 h-56 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-8 -bottom-8 group-hover:-translate-y-2 transition-transform duration-500"
+                      className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-full border-4 border-white/20 shadow-xl mb-6 md:mb-0 md:absolute md:-right-8 md:-bottom-8 order-1 md:order-2 group-hover:-translate-y-2 transition-transform duration-500"
                     />
                   </div>
 
                   {/* Fallback Banner 2 */}
-                  <div className="bg-[var(--color-brand-orange)] rounded-3xl p-10 flex items-center justify-between relative overflow-hidden group min-h-[280px]">
+                  <div className="bg-[var(--color-brand-orange)] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center md:justify-between relative overflow-hidden group">
                     <div className="absolute -right-10 -bottom-10 w-48 h-48 border-[20px] border-white/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
-                    <div className="relative z-10 max-w-[200px]">
+                    <div className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1 max-w-[200px]">
                       <span className="text-orange-100 font-semibold text-xs tracking-wider uppercase mb-2 block">Açougue Premium</span>
                       <h3 className="text-3xl font-serif font-bold text-white mb-6 leading-tight">
                         Cortes <br/><span className="italic font-light">Especiais</span>
@@ -132,7 +133,7 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
                     <img 
                       src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=400&auto=format&fit=crop" 
                       alt="Açougue" 
-                      className="w-56 h-56 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-8 -bottom-8 group-hover:-translate-y-2 transition-transform duration-500"
+                      className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-full border-4 border-white/20 shadow-xl mb-6 md:mb-0 md:absolute md:-right-8 md:-bottom-8 order-1 md:order-2 group-hover:-translate-y-2 transition-transform duration-500"
                     />
                   </div>
                 </>
@@ -141,8 +142,8 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
           </div>
         </section>
 
-        {/* PRODUCTS */}
-        <section id="vitrine" className="py-16 bg-gray-50/50">
+          {/* PRODUCTS */}
+          <section id="vitrine" className="order-1 md:order-2 py-16 bg-gray-50/50 pb-8 md:pb-16">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">
@@ -163,7 +164,8 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
               ))}
             </div>
           </div>
-        </section>
+          </section>
+        </div>
 
         {/* PROMO SLIDER */}
         <PromoSlider slides={promoSlides} />

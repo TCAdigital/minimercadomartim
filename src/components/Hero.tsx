@@ -119,9 +119,9 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
         }}
       />
       
-      <div className="container-custom relative z-10 grid md:grid-cols-2 gap-8 items-center h-full">
+      <div className="container-custom relative z-10 flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 items-center justify-center h-full pt-16 md:pt-0">
         {/* Text Content */}
-        <div className="max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700" key={`text-${uiSlide.id}`}>
+        <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700" key={`text-${uiSlide.id}`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6">
             {(() => {
               const iconName = uiSlide.badgeIcon as keyof typeof IconMap;
@@ -130,7 +130,7 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
             })()}
             {uiSlide.topBadge}
           </div>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
+          <h1 className="text-4xl md:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
             {uiSlide.title} <br />
             <span className="italic font-light opacity-90">{uiSlide.highlight}</span> <br />
             {uiSlide.subtitle}
@@ -145,7 +145,7 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
         </div>
         
         {/* Image Content */}
-        <div className="hidden md:block relative animate-in fade-in slide-in-from-right-8 duration-700" key={`img-${uiSlide.id}`}>
+        <div className="order-1 md:order-2 w-48 md:w-full relative animate-in fade-in slide-in-from-right-8 duration-700" key={`img-${uiSlide.id}`}>
           <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-[10px] uppercase text-center shadow-xl animate-pulse z-20 px-2 leading-tight">
             {(() => {
               const iconName = uiSlide.badgeIcon as keyof typeof IconMap;
@@ -169,13 +169,13 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
           {/* Controls */}
           <button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/30 bg-white/10 text-white flex items-center justify-center hover:bg-white/30 transition-colors z-20"
+            className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/30 bg-white/10 text-white items-center justify-center hover:bg-white/30 transition-colors z-20"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/30 bg-white/10 text-white flex items-center justify-center hover:bg-white/30 transition-colors z-20"
+            className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/30 bg-white/10 text-white items-center justify-center hover:bg-white/30 transition-colors z-20"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
