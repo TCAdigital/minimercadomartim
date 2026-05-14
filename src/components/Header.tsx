@@ -106,16 +106,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Sub-header for Produtos em Destaque */}
-      <div className="md:hidden bg-white border-b border-gray-100 p-3">
-        <Link 
-          href="/#vitrine" 
-          className="w-full bg-[var(--color-brand-green)] text-white font-bold uppercase tracking-wide py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm shadow-sm"
-        >
-          Produtos em Destaque
-          <span className="bg-[var(--color-brand-orange)] text-white text-[9px] px-1.5 py-0.5 rounded-sm">HOT</span>
-        </Link>
-      </div>
 
       {/* Categories Nav - Hidden on mobile */}
       <nav className="hidden md:block bg-[#faf7f3] border-b border-[var(--color-brand-border)]/50">
