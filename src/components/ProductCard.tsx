@@ -23,7 +23,10 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="group relative bg-white rounded-2xl p-4 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 border border-gray-100 flex flex-col h-full">
+    <div 
+      onClick={handleAdd}
+      className="cursor-pointer group relative bg-white rounded-2xl p-4 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 border border-gray-100 flex flex-col h-full"
+    >
       {product.oldPrice && (
         <span className="absolute top-3 left-3 bg-[var(--color-brand-green)] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md z-10">
           Oferta
@@ -58,7 +61,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <button 
-          onClick={handleAdd}
+          onClick={(e) => { e.stopPropagation(); handleAdd(); }}
           className={`w-full py-2.5 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
             added 
               ? "bg-green-100 text-green-700" 

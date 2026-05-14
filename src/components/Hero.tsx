@@ -131,7 +131,7 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
 
   return (
     <section 
-      className="relative overflow-hidden h-[600px] flex items-center transition-colors duration-1000"
+      className="relative overflow-hidden min-h-[600px] md:h-[600px] py-12 md:py-0 flex items-center transition-colors duration-1000"
       style={{ backgroundColor: uiSlide.bgColor }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -167,10 +167,10 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
           <p className="text-white/90 text-lg mb-8 max-w-md leading-relaxed">
             {uiSlide.description}
           </p>
-          <button className="bg-[var(--color-brand-dark)] hover:bg-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all flex items-center gap-3 group">
+          <a href="/#vitrine" className="bg-[var(--color-brand-dark)] hover:bg-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all flex items-center gap-3 group mt-4 md:mt-0">
             Comprar Agora
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
         
         {/* Image Content */}
