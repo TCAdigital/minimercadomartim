@@ -44,7 +44,7 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
                 { icon: Truck, title: "Entrega Rápida", desc: "Na sua porta" },
                 { icon: GlassWater, title: "Bebidas Geladas", desc: "Sempre no ponto perfeito" },
                 { icon: Leaf, title: "Produtos Orgânicos", desc: "Direto da fazenda" },
-                { icon: Clock, title: "Aberto Todos os Dias", desc: "Das 7h às 20h" }
+                { icon: Clock, title: "Terça a Domingo", desc: "Das 08h às 20h" }
               ].map((feature, i) => (
                 <div key={i} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-2 md:gap-4">
                   <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-[var(--color-brand-orange)] shrink-0 mx-auto md:mx-0">
@@ -237,7 +237,7 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Clock className="w-5 h-5 text-[var(--color-brand-green)]" />
-                    <span>Segunda a Sábado: 07h às 20h<br/>Domingo: 07h às 13h</span>
+                    <span>Terça a Sábado: 08h às 20h<br/>Domingo: 08h às 13h<br/><span className="text-[var(--color-brand-orange)] font-medium">Segunda-feira: Fechado</span></span>
                   </div>
                 </div>
                 <a 
