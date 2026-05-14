@@ -73,6 +73,32 @@ interface Slide {
 
 export function Hero({ slides: initialSlides }: { slides?: any[] }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+  };
 
   const displaySlides = initialSlides && initialSlides.length > 0 ? initialSlides : SLIDES;
 
@@ -107,6 +133,9 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
     <section 
       className="relative overflow-hidden h-[600px] flex items-center transition-colors duration-1000"
       style={{ backgroundColor: uiSlide.bgColor }}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay transition-all duration-1000"

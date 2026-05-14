@@ -9,6 +9,7 @@ export function Header() {
   const { items, toggleCart } = useCartStore();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -94,7 +95,10 @@ export function Header() {
               )}
             </button>
 
-            <button className="md:hidden p-2 text-gray-600">
+            <button 
+              className="md:hidden p-2 text-gray-600"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
               <Menu className="w-6 h-6" />
             </button>
           </div>
@@ -128,6 +132,33 @@ export function Header() {
           </ul>
         </div>
       </nav>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-b border-gray-200 shadow-lg absolute top-full left-0 w-full z-50 animate-in slide-in-from-top-2">
+          <div className="p-4">
+            <Link 
+              href="/#vitrine" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full bg-[var(--color-brand-green)] text-white font-bold uppercase tracking-wide py-3 rounded-xl flex items-center justify-center gap-2 mb-4"
+            >
+              Produtos em Destaque
+              <span className="bg-[var(--color-brand-orange)] text-white text-[9px] px-1.5 py-0.5 rounded-sm">HOT</span>
+            </Link>
+            <div className="grid grid-cols-2 gap-2">
+              {["Hortifruti", "Mercearia", "Carnes", "Padaria", "Bebidas", "Limpeza"].map((cat) => (
+                <Link 
+                  key={cat}
+                  href={`/?categoria=${cat}#vitrine`} 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="py-3 px-4 bg-gray-50 rounded-lg text-sm font-medium text-[var(--color-brand-dark)] uppercase tracking-wide text-center hover:bg-orange-50/50 transition-colors"
+                >
+                  {cat}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
