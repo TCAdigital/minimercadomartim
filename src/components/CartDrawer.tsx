@@ -183,6 +183,13 @@ export function CartDrawer() {
               </div>
               <span className="uppercase tracking-wider text-sm">Enviar Pedido via WhatsApp</span>
             </button>
+
+            <button 
+              onClick={toggleCart}
+              className="w-full mt-4 text-center text-gray-400 hover:text-[var(--color-brand-green)] font-bold text-xs uppercase tracking-wider transition-colors"
+            >
+              Continuar Comprando
+            </button>
           </div>
         )}
       </div>
