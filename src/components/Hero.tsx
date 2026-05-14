@@ -175,7 +175,7 @@ export function Hero({ slides: initialSlides }: { slides?: any[] }) {
         
         {/* Image Content */}
         <div className="order-1 md:order-2 w-48 md:w-full relative animate-in fade-in slide-in-from-right-8 duration-700" key={`img-${uiSlide.id}`}>
-          <div className="absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-[10px] uppercase text-center shadow-xl animate-pulse z-20 px-2 leading-tight">
+          <div className="hidden md:flex absolute top-10 right-10 w-24 h-24 bg-[var(--color-brand-yellow)] rounded-full flex-col items-center justify-center text-[var(--color-brand-dark)] font-bold text-[10px] uppercase text-center shadow-xl animate-pulse z-20 px-2 leading-tight">
             {(() => {
               const iconName = uiSlide.badgeIcon as keyof typeof IconMap;
               const Icon = IconMap[iconName] || Leaf;
