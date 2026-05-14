@@ -106,6 +106,17 @@ export function Header() {
         </div>
       </div>
 
+      {/* Mobile Sub-header for Produtos em Destaque */}
+      <div className="md:hidden bg-white border-b border-gray-100 p-3">
+        <Link 
+          href="/#vitrine" 
+          className="w-full bg-[var(--color-brand-green)] text-white font-bold uppercase tracking-wide py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm shadow-sm"
+        >
+          Produtos em Destaque
+          <span className="bg-[var(--color-brand-orange)] text-white text-[9px] px-1.5 py-0.5 rounded-sm">HOT</span>
+        </Link>
+      </div>
+
       {/* Categories Nav - Hidden on mobile */}
       <nav className="hidden md:block bg-[#faf7f3] border-b border-[var(--color-brand-border)]/50">
         <div className="container-custom flex items-center justify-between">
@@ -136,14 +147,6 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 shadow-lg absolute top-full left-0 w-full z-50 animate-in slide-in-from-top-2">
           <div className="p-4">
-            <Link 
-              href="/#vitrine" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full bg-[var(--color-brand-green)] text-white font-bold uppercase tracking-wide py-3 rounded-xl flex items-center justify-center gap-2 mb-4"
-            >
-              Produtos em Destaque
-              <span className="bg-[var(--color-brand-orange)] text-white text-[9px] px-1.5 py-0.5 rounded-sm">HOT</span>
-            </Link>
             <div className="grid grid-cols-2 gap-2">
               {["Hortifruti", "Mercearia", "Carnes", "Padaria", "Bebidas", "Limpeza"].map((cat) => (
                 <Link 
