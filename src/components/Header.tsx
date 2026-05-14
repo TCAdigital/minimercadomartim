@@ -108,7 +108,7 @@ export function Header() {
           <ul className="flex items-center">
             <li>
               <Link 
-                href="#vitrine" 
+                href="/#vitrine" 
                 className="block py-3 px-5 text-sm font-bold text-[var(--color-brand-green)] uppercase tracking-wide flex items-center gap-2"
               >
                 Produtos em Destaque
@@ -118,7 +118,7 @@ export function Header() {
             {["Hortifruti", "Mercearia", "Carnes", "Padaria", "Bebidas", "Limpeza"].map((cat) => (
               <li key={cat}>
                 <Link 
-                  href="#" 
+                  href={`/?categoria=${cat}#vitrine`} 
                   className="block py-3 px-5 text-sm font-medium text-[var(--color-brand-dark)] uppercase tracking-wide hover:text-[var(--color-brand-orange)] hover:bg-orange-50/50 transition-colors"
                 >
                   {cat}

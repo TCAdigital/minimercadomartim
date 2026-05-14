@@ -11,8 +11,12 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home() {
+export default async function Home(props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const searchParams = await props.searchParams;
+  const categoria = typeof searchParams?.categoria === 'string' ? searchParams.categoria : undefined;
+
   const products = await prisma.product.findMany({
+    where: categoria ? { category: categoria } : undefined,
     orderBy: { createdAt: "desc" },
   });
 
@@ -87,7 +91,7 @@ export default async function Home() {
                       <img 
                         src={slide.image} 
                         alt={slide.title} 
-                        className="w-44 h-44 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                        className="w-56 h-56 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-8 -bottom-8 group-hover:-translate-y-2 transition-transform duration-500"
                       />
                     )}
                   </div>
@@ -109,7 +113,7 @@ export default async function Home() {
                     <img 
                       src="https://images.unsplash.com/photo-1543168256-4154204ceaff?q=80&w=400&auto=format&fit=crop" 
                       alt="Mercearia" 
-                      className="w-44 h-44 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                      className="w-56 h-56 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-8 -bottom-8 group-hover:-translate-y-2 transition-transform duration-500"
                     />
                   </div>
 
@@ -128,7 +132,7 @@ export default async function Home() {
                     <img 
                       src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=400&auto=format&fit=crop" 
                       alt="Açougue" 
-                      className="w-44 h-44 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-6 -bottom-6 group-hover:-translate-y-2 transition-transform duration-500"
+                      className="w-56 h-56 object-cover rounded-full border-4 border-white/20 shadow-2xl absolute -right-8 -bottom-8 group-hover:-translate-y-2 transition-transform duration-500"
                     />
                   </div>
                 </>
@@ -141,9 +145,15 @@ export default async function Home() {
         <section id="vitrine" className="py-16 bg-gray-50/50">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">Os Melhores</span>
+              <span className="text-[var(--color-brand-orange)] font-bold tracking-widest uppercase text-sm mb-2 block">
+                {categoria ? "Nossos Produtos" : "Os Melhores"}
+              </span>
               <h2 className="text-4xl font-serif font-bold text-[var(--color-brand-dark)]">
-                Produtos em <span className="italic font-light underline decoration-[var(--color-brand-green)] underline-offset-4">Destaque</span>
+                {categoria ? (
+                  <>Produtos de <span className="italic font-light underline decoration-[var(--color-brand-green)] underline-offset-4">{categoria}</span></>
+                ) : (
+                  <>Produtos em <span className="italic font-light underline decoration-[var(--color-brand-green)] underline-offset-4">Destaque</span></>
+                )}
               </h2>
             </div>
 
