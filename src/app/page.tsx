@@ -8,6 +8,7 @@ import { PromoSlider } from "@/components/PromoSlider";
 
 import prisma from "@/lib/prisma";
 import Link from "next/link";
+import { Product, HeroSlide, PromoSlide } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -15,9 +16,9 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
   const searchParams = await props.searchParams;
   const categoria = typeof searchParams?.categoria === 'string' ? searchParams.categoria : undefined;
 
-  let products = [];
-  let heroSlides = [];
-  let promoSlides = [];
+  let products: Product[] = [];
+  let heroSlides: HeroSlide[] = [];
+  let promoSlides: PromoSlide[] = [];
 
   try {
     products = await prisma.product.findMany({
