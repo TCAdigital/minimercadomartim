@@ -15,18 +15,27 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
   const searchParams = await props.searchParams;
   const categoria = typeof searchParams?.categoria === 'string' ? searchParams.categoria : undefined;
 
-  const products = await prisma.product.findMany({
-    where: categoria ? { category: categoria } : undefined,
-    orderBy: { createdAt: "desc" },
-  });
+  let products = [];
+  let heroSlides = [];
+  let promoSlides = [];
 
-  const heroSlides = await prisma.heroSlide.findMany({
-    orderBy: { order: "asc" },
-  });
+  try {
+    products = await prisma.product.findMany({
+      where: categoria ? { category: categoria } : undefined,
+      orderBy: { createdAt: "desc" },
+    });
 
-  const promoSlides = await prisma.promoSlide.findMany({
-    orderBy: { order: "asc" },
-  });
+    heroSlides = await prisma.heroSlide.findMany({
+      orderBy: { order: "asc" },
+    });
+
+    promoSlides = await prisma.promoSlide.findMany({
+      orderBy: { order: "asc" },
+    });
+  } catch (error) {
+    console.error("Erro ao carregar dados do banco:", error);
+    // As variáveis permanecem como arrays vazios, o que aciona os fallbacks nos componentes
+  }
 
   return (
     <>
