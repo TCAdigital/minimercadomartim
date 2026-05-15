@@ -78,9 +78,9 @@ export function Header() {
               </div>
             </div>
 
-            <Link href="/admin/login" className="p-2 text-gray-600 hover:text-[var(--color-brand-orange)] transition-colors hidden sm:block">
+            <a href="/admin/login" className="p-2 text-gray-600 hover:text-[var(--color-brand-orange)] transition-colors hidden sm:block">
               <User className="w-5 h-5" />
-            </Link>
+            </a>
 
             <button 
               onClick={toggleCart}
